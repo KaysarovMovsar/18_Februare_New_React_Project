@@ -3,13 +3,14 @@
     grid-template-columns: 2fr 10fr;
     grid-template-rows: 100px 1fr;
     grid-template-areas: "h h" "n c";
-    width: 570px;
+    width: 1000px;
     margin: 0 auto;
 }
 
 .header {
     grid-area: h;
-    background-color: rebeccapurple;
+    background-color: white;
+    border: gold 2px solid;
 }
 
 .header img {
