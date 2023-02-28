@@ -7,26 +7,7 @@
     margin: 0 auto;
 }
 
-.header {
-    grid-area: h;
-    background-color: white;
-    border: gold 2px solid;
-}
 
-.header img {
-    width: 100px;
-}
 
-.container{
-    grid-area: c;
-    background-color: gold;
-}
 
-.container img {
-    /*width: 500px;*/
-}
 
-.nav {
-    grid-area: n;
-    background-color: aquamarine;
-}

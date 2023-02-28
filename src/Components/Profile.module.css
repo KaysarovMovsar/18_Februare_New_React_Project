@@ -1,0 +1,20 @@
+.container{
+    grid-area: c;
+    background-color: gold;
+}
+
+.container img {
+    /*width: 500px;*/
+}
+
+.posts {
+
+}
+
+.item {
+
+}
+
+.sideBar {
+    padding: 15px;
+}
