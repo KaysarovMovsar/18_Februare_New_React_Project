@@ -1,7 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Header from "./components/Header";
+import Technologies from "./components/Technologies";
 
 function App() {
+
+    return (
+        <div className="App">
+            <Header/>
+            <Technologies/>
+        </div>
+    );
+=======
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +32,7 @@ function App() {
       </header>
     </div>
   );
+
 }
 
 export default App;
