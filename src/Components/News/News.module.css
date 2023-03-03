@@ -1,14 +1,17 @@
 .NewsWrap {
-    /*width: 800px;*/
+    width: 800px;
     padding: 50px;
     margin: 0 auto;
-    background-color: whitesmoke;
-    border-right: black 2px solid;
-    border-bottom: black 2px solid;
+    box-sizing: border-box;
 
 }
 
-.NewsWrap img {
-    width: 700px;
+.container {
+    background-color: whitesmoke;
+    border-right: black 2px solid;
+    border-bottom: black 2px solid;
+}
 
+.NewsWrap img {
+    max-width: 650px;
 }
