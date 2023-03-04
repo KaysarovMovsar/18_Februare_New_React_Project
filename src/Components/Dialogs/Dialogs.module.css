@@ -1,0 +1,25 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+    background: url("https://pixelbox.ru/wp-content/uploads/2021/09/background-chat-vk-75.jpg") no-repeat;
+    color: white;
+    background-size: cover;
+    height: 20vh;
+}
+
+.dialogItems {
+
+}
+
+.dialog {
+
+}
+
+.messages {
+
+}
+
+.message {
+
+}
