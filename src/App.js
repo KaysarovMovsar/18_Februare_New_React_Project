@@ -4,6 +4,9 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
 import Dialogs from "./Components/Dialogs/Dialogs";
+import News from "./Components/News/News";
+import Settings from "./Components/Settings/Settings";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 const App = () => {
@@ -12,15 +15,20 @@ function App() {
 
 
     return (
-        <div className="AppWrap">
-            <Header />
-            <Navbar />
-            <div className='App-Wrap-container'>
-                <Profile />
-                {/*<Dialogs />*/}
+        <BrowserRouter>
+            <div className="AppWrap">
+                <Header />
+                <Navbar />
+                <div className='App-Wrap-container'>
+                    <Routes>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/dialogs" element={<Dialogs/>}/>
+                        <Route path='/news' element={<News/>}/>
+                        <Route path='/settings' element={<Settings/>}/>
+                    </Routes>
+                </div>
             </div>
-
-        </div>
+        </BrowserRouter>
     );
 =======
   return (

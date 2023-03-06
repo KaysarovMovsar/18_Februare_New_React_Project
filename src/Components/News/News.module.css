@@ -1,0 +1,14 @@
+.NewsWrap {
+    /*width: 800px;*/
+    padding: 50px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border-right: black 2px solid;
+    border-bottom: black 2px solid;
+
+}
+
+.NewsWrap img {
+    width: 700px;
+
+}

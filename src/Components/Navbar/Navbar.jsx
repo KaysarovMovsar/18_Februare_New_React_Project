@@ -5,10 +5,10 @@ const Navbar = () => {
     return (
         <nav className={s.nav}>
             <ul>
-                <li className={`${s.item} ${s.active}`}>Messages</li>
-                <li className={s.item}>News</li>
-                <li className={s.item}>About me</li>
-                <li className={s.stuff}>Other</li>
+                <li className={`${s.item} ${s.active}`}><a href='/profile'>Profile</a></li>
+                <li className={s.item}><a href='/dialogs'>Messages</a></li>
+                <li className={s.item}><a href='/news'>News</a></li>
+                <li className={s.stuff}><a href='/settings'>Settings</a></li>
             </ul>
         </nav>
     );
