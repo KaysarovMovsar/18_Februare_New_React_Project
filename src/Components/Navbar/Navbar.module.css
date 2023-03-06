@@ -12,8 +12,13 @@
     margin-top: 20px;
 }
 
-.item {
+.item a {
+    text-decoration: none;
+    color: whitesmoke;
+}
 
+.item a.activeLink {
+    color: gold;
 }
 
 .active {
