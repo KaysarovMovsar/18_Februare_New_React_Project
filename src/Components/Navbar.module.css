@@ -1,0 +1,22 @@
+.nav {
+    grid-area: n;
+    background-color: aquamarine;
+
+}
+
+.nav ul {
+    list-style: none;
+}
+
+.stuff {
+    margin-top: 20px;
+}
+
+.item {
+
+}
+
+.active {
+    color: gold;
+}
+
