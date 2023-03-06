@@ -10,8 +10,8 @@ const MyPost = () => {
                  <textarea className={s.input} placeholder='add'></textarea><br/>
                  <button className={s.add}>Add Post</button>
                 <div className={s.posts}>
-                    <Post />
-                    <Post />
+                    <Post message='Hello, what is your number' />
+                    <Post message='Hello, I am not sure about that' />
                 </div>
             </div>
         </div>
