@@ -8,6 +8,8 @@ let PostsData = [
 
 ]
 
+const postElements = PostsData.map(p =>  <Post message={p.message} LikesCount={p.LikesCount}/>)
+
 const MyPost = () => {
     return (
         <div className={s.container}>
@@ -16,8 +18,7 @@ const MyPost = () => {
                  <textarea className={s.input} placeholder='add'></textarea><br/>
                  <button className={s.add}>Add Post</button>
                 <div className={s.posts}>
-                    <Post message={PostsData[0].message} LikesCount={PostsData[0].LikesCount}/>
-                    <Post message={PostsData[1].message} LikesCount={PostsData[0].LikesCount}/>
+                    {postElements}
                 </div>
             </div>
         </div>
