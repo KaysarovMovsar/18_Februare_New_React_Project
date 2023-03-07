@@ -9,9 +9,8 @@ import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
-const App = () => {
+const App = (props) => {
 
-function App() {
 
 
     return (
@@ -21,8 +20,8 @@ function App() {
                 <Navbar />
                 <div className='App-Wrap-container'>
                     <Routes>
-                        <Route path="/profile" element={<Profile/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs/>}/>
+                        <Route path="/profile" element={<Profile PostsData={props.PostsData}/>}/>
+                        <Route path="/dialogs/*" element={<Dialogs DialogsData={props.DialogsData} MessagesData={props.MessagesData}/>}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/settings' element={<Settings/>}/>
                     </Routes>
@@ -30,28 +29,7 @@ function App() {
             </div>
         </BrowserRouter>
     );
-=======
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-
 }
+export default App
 
-export default App;
+
