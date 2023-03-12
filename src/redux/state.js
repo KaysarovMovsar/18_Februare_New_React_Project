@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 const state = {
     profilePage: {
         PostsData : [
@@ -32,6 +34,7 @@ export let addPost = (postMessage) =>{
     }
 
     state.profilePage.PostsData.push(newPost)
+    rerenderEntireTree(state)
 }
 
 export default state;
