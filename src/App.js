@@ -7,7 +7,6 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {addPost} from "./redux/state";
 
 
 const App = (props) => {
