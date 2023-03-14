@@ -15,3 +15,7 @@
 .NewsWrap img {
     max-width: 650px;
 }
+
+.containerBtn {
+    padding: 10px;
+}

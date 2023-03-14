@@ -1,7 +1,22 @@
 import React from "react";
 import s from "./News.module.css"
+import Post from "../Profile/MyPosts/Post/Post";
 
-const News = () => {
+
+const News = (props) => {
+
+    debugger
+
+    const addRefElement = React.createRef()
+
+    const addPostElement = () => {
+        let text = addRefElement.current.value
+        props.addPostElement(text)
+    }
+
+    const postElements = props.state.newsPostData.map(s => <Post message={s.message} LikesCount={s.LikesCount}/>)
+
+
     return (
         <div className={s.container}>
             <div className={s.NewsWrap}>
@@ -43,6 +58,15 @@ const News = () => {
                     Musk’s who had led his tunneling start-up, the Boring Company, according to two people with
                     knowledge of the matter.
                 </p>
+            </div>
+            <div className={s.containerBtn}>
+                <div>
+                    <textarea ref={addRefElement}></textarea>
+                </div>
+                <div>
+                    <button onClick={addPostElement}>Add Post</button>
+                </div>
+                {postElements}
             </div>
         </div>
 
