@@ -1,6 +1,11 @@
 import post from "../Components/Profile/MyPosts/Post/Post";
 
+import {rerenderEntireTree} from "../render";
+
+
 const state = {
+
+
     profilePage: {
         PostsData : [
             {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
@@ -8,6 +13,9 @@ const state = {
         ],
 
 
+
+
+        newPostText: 'it-kamasutra'
 
     },
 
@@ -75,5 +83,25 @@ export let settingsAddPost = (postMessage) => {
 
 }
 
+window.state = state
+
+
+export let addPost = () =>{
+    let newPost = {
+        id: 1,
+        message: state.profilePage.newPostText,
+        LikesCount: 'Like ' + 12
+
+    }
+    state.profilePage.PostsData.push(newPost)
+    state.profilePage.newPostText('')
+    rerenderEntireTree(state)
+}
 
 export default state;
+
+export let updateNewPostText = (newText) =>{
+
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
