@@ -12,6 +12,7 @@ const Settings = (props) => {
     const settingsAddPost = () => {
         let text = setPostElement.current.value
         props.settingsAddPost(text)
+        setPostElement.current.value = ''
     }
 
     return (

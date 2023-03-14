@@ -9,9 +9,10 @@ const MyPost = (props) => {
     const postElements = props.PostsData.map(p =>  <Post message={p.message} LikesCount={p.LikesCount}/>)
 
     let newPost = React.createRef()
-    let addPost = () => {
+    let addPostElement = () => {
         let text = newPost.current.value
-        alert(text)
+        props.addPostElement(text)
+        newPost.current.value = ''
     }
 
     return (
@@ -19,7 +20,7 @@ const MyPost = (props) => {
              <div className={s.sideBar}>
                  <div>My posts</div>
                  <textarea ref={newPost} className={s.input} placeholder='add'></textarea><br/>
-                 <button onClick={addPost} className={s.add}>Add Post</button>
+                 <button onClick={addPostElement} className={s.add}>Add Post</button>
                 <div className={s.posts}>
                     {postElements}
                 </div>

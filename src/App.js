@@ -19,13 +19,14 @@ const App = (props) => {
                 <div className='App-Wrap-container'>
                     <Routes>
                         <Route path="/profile"
-                               element={<Profile state={props.state.profilePage}/>}/>
+                               element={<Profile state={props.state.profilePage}
+                                                 addPostElement={props.addPostElement}/>}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs state={props.state.dialogPage}
                                                  dialogsAddPost={props.dialogsAddPost}/>}/>
                         <Route path='/news/*'
                                element={<News state={props.state.dialogPage}
-                                              addPostElement={props.addPostElement}/>}/>
+                                              addPostNewsElement={props.addPostNewsElement}/>}/>
                         <Route path='/settings/*'
                                element={<Settings settingsAddPost={props.settingsAddPost}
                                                   state={props.state.dialogPage}
