@@ -20,6 +20,7 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile"
                                element={<Profile state={props.state.profilePage}
+                                                 addPostElement={props.addPostElement}/>}/>
                                                  addPost={props.addPost}
                                                  updateNewPostText={props.updateNewPostText}/>}/>
                         <Route path="/dialogs/*"
@@ -27,7 +28,7 @@ const App = (props) => {
                                                  dialogsAddPost={props.dialogsAddPost}/>}/>
                         <Route path='/news/*'
                                element={<News state={props.state.dialogPage}
-                                              addPostElement={props.addPostElement}/>}/>
+                                              addPostNewsElement={props.addPostNewsElement}/>}/>
                         <Route path='/settings/*'
                                element={<Settings settingsAddPost={props.settingsAddPost}
                                                   state={props.state.dialogPage}

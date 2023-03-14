@@ -1,4 +1,5 @@
 import post from "../Components/Profile/MyPosts/Post/Post";
+import {rerenderEntireTree} from "../rerender";
 
 import {rerenderEntireTree} from "../render";
 
@@ -60,7 +61,21 @@ export let addPostElement = (postMessage) => {
         LikesCount: 'Like ' + 12
     }
 
+    state.profilePage.PostsData.push(newsTextData)
+    rerenderEntireTree(state)
+}
+
+
+export let addPostNewsElement = (postMessage) => {
+    let newsTextData = {
+        id: 1,
+        message: postMessage,
+        LikesCount: 'Like ' + 12
+    }
+
     state.dialogPage.newsPostData.push(newsTextData)
+    rerenderEntireTree(state)
+
 }
 
 export let dialogsAddPost = (postMessage) => {
@@ -71,6 +86,8 @@ export let dialogsAddPost = (postMessage) => {
         }
 
     state.dialogPage.dialogPostData.push(dialogTextData)
+    rerenderEntireTree(state)
+
 }
 
 export let settingsAddPost = (postMessage) => {
@@ -80,6 +97,8 @@ export let settingsAddPost = (postMessage) => {
         LikesCount: 'Like ' + 12
     }
     state.dialogPage.settingPostData.push(settingTextData)
+    rerenderEntireTree(state)
+
 
 }
 

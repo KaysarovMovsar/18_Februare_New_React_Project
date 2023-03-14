@@ -3,8 +3,12 @@ import './index.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {addPostElement, dialogsAddPost, settingsAddPost} from "./redux/state";
+import {rerenderEntireTree} from "./rerender";
+import state from "./redux/state";
 
+rerenderEntireTree(state);
+
+reportWebVitals();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

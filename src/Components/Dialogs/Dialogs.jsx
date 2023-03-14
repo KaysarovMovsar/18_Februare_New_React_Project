@@ -20,6 +20,7 @@ const Dialogs = (props) => {
     let dialogsAddPost = () => {
         let text = dialogsPostElement.current.value
         props.dialogsAddPost(text)
+        dialogsPostElement.current.value = ''
 
     }
 
