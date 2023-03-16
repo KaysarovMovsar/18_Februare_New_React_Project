@@ -3,18 +3,18 @@ import {rerenderEntireTree} from "../rerender";
 
 const state = {
     profilePage: {
-        PostsData : [
+        PostsData: [
             {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
             {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
         ],
-
+        onChangeData: 'It-kamasutra.com'
 
 
     },
 
-    dialogPage :{
+    dialogPage: {
 
-        DialogsData : [
+        DialogsData: [
             {id: 1, name: 'Movsar'},
             {id: 2, name: 'Ahmad'},
             {id: 3, name: 'Iman'},
@@ -22,7 +22,7 @@ const state = {
             {id: 5, name: 'Lilia'},
         ],
 
-        MessagesData : [
+        MessagesData: [
             {id: 1, message: 'Hello'},
             {id: 2, message: 'How are you?'},
             {id: 3, message: 'Yep'},
@@ -30,30 +30,38 @@ const state = {
             {id: 5, message: 'Have a good meal!'},
         ],
 
-        dialogPostData : [
+        dialogPostData: [
             {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
             {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
         ],
 
-        settingPostData : [
+        settingPostData: [
             {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
             {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
         ],
-        newsPostData : [
+        newsPostData: [
             {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
             {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
         ]
     },
 }
 
-export let addPostElement = (postMessage) => {
+window.state = state
+
+export let addPostElement = () => {
     let newsTextData = {
         id: 1,
-        message: postMessage,
+        message: state.profilePage.onChangeData,
         LikesCount: 'Like ' + 12
     }
-
     state.profilePage.PostsData.push(newsTextData)
+    state.profilePage.onChangeData = '';
+    rerenderEntireTree(state)
+}
+
+
+export let updateOnPostChange = (postMessage) => {
+    state.profilePage.onChangeData = postMessage
     rerenderEntireTree(state)
 }
 
@@ -67,19 +75,16 @@ export let addPostNewsElement = (postMessage) => {
 
     state.dialogPage.newsPostData.push(newsTextData)
     rerenderEntireTree(state)
-
 }
 
 export let dialogsAddPost = (postMessage) => {
     let dialogTextData = {
-            id: 1,
-            message: postMessage,
-            LikesCount: 'Like ' + 12
-        }
-
+        id: 1,
+        message: postMessage,
+        LikesCount: 'Like ' + 12
+    }
     state.dialogPage.dialogPostData.push(dialogTextData)
     rerenderEntireTree(state)
-
 }
 
 export let settingsAddPost = (postMessage) => {
@@ -90,8 +95,6 @@ export let settingsAddPost = (postMessage) => {
     }
     state.dialogPage.settingPostData.push(settingTextData)
     rerenderEntireTree(state)
-
-
 }
 
 

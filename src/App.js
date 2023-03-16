@@ -7,7 +7,6 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {addPostElement, settingsAddPost} from "./redux/state";
 
 
 const App = (props) => {
@@ -20,7 +19,8 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile"
                                element={<Profile state={props.state.profilePage}
-                                                 addPostElement={props.addPostElement}/>}/>
+                                                 addPostElement={props.addPostElement}
+                                                 updateOnPostChange={props.updateOnPostChange}/>}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs state={props.state.dialogPage}
                                                  dialogsAddPost={props.dialogsAddPost}/>}/>
