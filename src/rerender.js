@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {addPostElement, addPostNewsElement, dialogsAddPost, settingsAddPost} from "./redux/state";
+import state, {
+    addPostElement,
+    addPostNewsElement,
+    dialogsAddPost,
+    updateOnPostChange,
+    settingsAddPost,
+} from "./redux/state";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +21,9 @@ export let rerenderEntireTree = () => {
                  dialogsAddPost={dialogsAddPost}
                  settingsAddPost={settingsAddPost}
                  addPostNewsElement={addPostNewsElement}
-                 addPostElement={addPostElement}/>
+                 addPostElement={addPostElement}
+                 updateOnPostChange={updateOnPostChange}
+            />
         </React.StrictMode>
     );
 }

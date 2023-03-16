@@ -9,7 +9,12 @@ const MyPost = (props) => {
 
     let newPost = React.createRef()
     let addPostElement = () => {
+        props.addPostElement()
+    }
+
+    let onAddPostChange = () => {
         let text = newPost.current.value
+        props.updateOnPostChange(text)
         newPost.current.value = ''
         props.addPost(text)
     }
@@ -23,7 +28,11 @@ const MyPost = (props) => {
         <div className={s.container}>
              <div className={s.sideBar}>
                  <div>My posts</div>
-                 <textarea ref={newPost} className={s.input} placeholder='add'></textarea><br/>
+                 <textarea ref={newPost}
+                           className={s.input}
+                           placeholder='add'
+                           value={props.onChangeData}
+                           onChange={onAddPostChange}/><br/>
                  <button onClick={addPostElement} className={s.add}>Add Post</button>
                  <textarea onChange={onChangePost} ref={newPost} className={s.input} value={props.newPostText} /><br/>
                  <button onClick={addPost} className={s.add}>Add Post</button>
