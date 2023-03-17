@@ -96,6 +96,5 @@ export let settingsAddPost = (postMessage) => {
     state.dialogPage.settingPostData.push(settingTextData)
     rerenderEntireTree(state)
 }
-
-
+//sxscdvcfv
 export default state;
