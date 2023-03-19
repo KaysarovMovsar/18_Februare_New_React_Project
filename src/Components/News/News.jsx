@@ -4,8 +4,7 @@ import Post from "../Profile/MyPosts/Post/Post";
 
 
 const News = (props) => {
-
-    debugger
+    
 
     const addRefElement = React.createRef()
 
