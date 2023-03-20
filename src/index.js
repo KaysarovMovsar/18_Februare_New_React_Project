@@ -15,8 +15,7 @@ export let rerenderEntireTree = (state) => {
                  dialogsAddPost={store.dialogsAddPost.bind(store)}
                  settingsAddPost={store.settingsAddPost.bind(store)}
                  addPostNewsElement={store.addPostNewsElement.bind(store)}
-                 addPostElement={store.addPostElement.bind(store)}
-                 updateOnPostChange={store.updateOnPostChange.bind(store)}
+                 dispatch={store.dispatch.bind(store)}
             />
         </React.StrictMode>
     );

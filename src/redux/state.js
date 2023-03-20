@@ -45,6 +45,7 @@ let store = {
     getState() {
         return this._state
     },
+
     addPostElement () {
         let newsTextData = {
             id: 1,
@@ -59,6 +60,23 @@ let store = {
         this._state.profilePage.onChangeData = postMessage
         this._rerenderEntireTree(this._state)
     },
+
+    dispatch(action) {
+        if(action.type === "ADD-POST-ELEMENT"){
+            let newsTextData = {
+                id: 1,
+                message: this._state.profilePage.onChangeData,
+                LikesCount: 'Like ' + 12
+            }
+            this._state.profilePage.PostsData.push(newsTextData)
+            this._state.profilePage.onChangeData = '';
+            this._rerenderEntireTree(this._state)
+        } else if (action.type === "UPDATE-ON-POST-CHANGE"){
+            this._state.profilePage.onChangeData = action.postMessage
+            this._rerenderEntireTree(this._state)
+        }
+    },
+
     addPostNewsElement (postMessage){
         let newsTextData = {
             id: 1,
