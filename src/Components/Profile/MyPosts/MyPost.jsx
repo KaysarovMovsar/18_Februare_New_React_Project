@@ -15,6 +15,14 @@ const MyPost = (props) => {
     let onAddPostChange = () => {
         let text = newPost.current.value
         props.dispatch({ type: "UPDATE-ON-POST-CHANGE", postMessage: text} )
+        props.updateOnPostChange(text)
+        newPost.current.value = ''
+        props.addPost(text)
+    }
+
+    let onChangePost = () => {
+        let text = newPost.current.value
+        props.updateNewPostText(text)
     }
 
     return (
@@ -27,6 +35,8 @@ const MyPost = (props) => {
                            value={props.onChangeData}
                            onChange={onAddPostChange}/><br/>
                  <button onClick={addPostElement} className={s.add}>Add Post</button>
+                 <textarea onChange={onChangePost} ref={newPost} className={s.input} value={props.newPostText} /><br/>
+                 <button onClick={addPost} className={s.add}>Add Post</button>
                 <div className={s.posts}>
                     {postElements}
                 </div>
