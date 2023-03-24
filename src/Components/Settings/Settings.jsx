@@ -10,9 +10,12 @@ const Settings = (props) => {
     const setPostElement = React.createRef()
 
     const settingsAddPost = () => {
+        props.settingsAddPost()
+    }
+
+    const updateSetAddPost = () => {
         let text = setPostElement.current.value
-        props.settingsAddPost(text)
-        setPostElement.current.value = ''
+        props.updateSetAddPost(text)
     }
 
     return (
@@ -20,7 +23,7 @@ const Settings = (props) => {
             <div>
                 Settings
                 <div className={s.container}>
-                    <textarea ref={setPostElement}></textarea>
+                    <textarea ref={setPostElement} onChange={updateSetAddPost} value={props.state.onSettingPost}></textarea>
                 </div>
                 <div>
                     <button onClick={settingsAddPost}>Add Post</button>
