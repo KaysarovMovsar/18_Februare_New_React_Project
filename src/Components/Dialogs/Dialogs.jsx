@@ -6,7 +6,6 @@ import Message from "./Message/Message";
 import Post from "../Profile/MyPosts/Post/Post";
 
 
-
 const Dialogs = (props) => {
 
     const dialogsElements = props.state.DialogsData.map(p => <DialogItem name={p.name} id={p.id}/>)
@@ -18,10 +17,12 @@ const Dialogs = (props) => {
     let dialogsPostElement = React.createRef()
 
     let dialogsAddPost = () => {
-        let text = dialogsPostElement.current.value
-        props.dialogsAddPost(text)
-        dialogsPostElement.current.value = ''
+        props.dialogsAddPost()
+    }
 
+    let onDialogsPost = () => {
+        let text = dialogsPostElement.current.value
+         props.updateOnpostDialog(text)
     }
 
     return (
@@ -34,7 +35,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.container}>
                 <div>
-                    <textarea ref={dialogsPostElement}></textarea>
+                    <textarea ref={dialogsPostElement} onChange={onDialogsPost} value={props.state.onDialogsPost}/>
                 </div>
                 <div>
                     <button onClick={dialogsAddPost}>Add Post</button>

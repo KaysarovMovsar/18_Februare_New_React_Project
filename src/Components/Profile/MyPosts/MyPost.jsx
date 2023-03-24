@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './MyPost.module.css'
 import Post from "./Post/Post";
+import {type} from "@testing-library/user-event/dist/type";
+import {ActCreatorAddPostElement, UpdateOnPostChangeActCreator} from "../../../redux/state";
 
 
 const MyPost = (props) => {
@@ -9,12 +11,12 @@ const MyPost = (props) => {
 
     let newPost = React.createRef()
     let addPostElement = () => {
-        props.dispatch({type: "ADD-POST-ELEMENT"})
+        props.dispatch(ActCreatorAddPostElement())
     }
 
     let onAddPostChange = () => {
         let text = newPost.current.value
-        props.dispatch({ type: "UPDATE-ON-POST-CHANGE", postMessage: text} )
+        props.dispatch(UpdateOnPostChangeActCreator(text))
     }
 
     return (
