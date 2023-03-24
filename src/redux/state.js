@@ -49,6 +49,26 @@ let store = {
             ],
             onNewsPost: 'IntonotenoughSchool.ru'
         },
+import post from "../Components/Profile/MyPosts/Post/Post";
+import {rerenderEntireTree} from "../rerender";
+
+import {rerenderEntireTree} from "../render";
+
+
+const state = {
+
+
+    profilePage: {
+        PostsData: [
+            {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
+            {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
+        ],
+        onChangeData: 'It-kamasutra.com'
+
+
+
+        newPostText: 'it-kamasutra'
+
     },
     getState() {
         return this._state
@@ -147,3 +167,36 @@ export const UpdateOnPostChangeActCreator = (text) => {
 
 
 export default store;
+export let settingsAddPost = (postMessage) => {
+    let settingTextData = {
+        id: 0,
+        message: postMessage,
+        LikesCount: 'Like ' + 12
+    }
+    state.dialogPage.settingPostData.push(settingTextData)
+    rerenderEntireTree(state)
+}
+//sxscdvcfv
+
+window.state = state
+
+
+export let addPost = () =>{
+    let newPost = {
+        id: 1,
+        message: state.profilePage.newPostText,
+        LikesCount: 'Like ' + 12
+
+    }
+    state.profilePage.PostsData.push(newPost)
+    state.profilePage.newPostText('')
+    rerenderEntireTree(state)
+}
+
+export default state;
+
+export let updateNewPostText = (newText) =>{
+
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state)
+}
