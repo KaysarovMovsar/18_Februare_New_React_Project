@@ -1,7 +1,4 @@
-
-const ADD_POST_ELEMENT = "ADD-POST-ELEMENT"
-const UPDATE_ON_POST_CHANGE = "UPDATE-ON-POST-CHANGE"
-
+import ProfileReducer from "./profile-reducer";
 
 let store = {
     _state: {
@@ -75,21 +72,8 @@ const state = {
     },
 
     dispatch(action) {
-        if(action.type === "ADD-POST-ELEMENT"){
-            let newsTextData = {
-                id: 1,
-                message: this._state.profilePage.onChangeData,
-                LikesCount: 'Like ' + 12
-            }
-            this._state.profilePage.PostsData.push(newsTextData)
-            this._state.profilePage.onChangeData = '';
-            this._rerenderEntireTree(this._state)
-
-        } else if (action.type === "UPDATE-ON-POST-CHANGE"){
-
-            this._state.profilePage.onChangeData = action.postMessage
-            this._rerenderEntireTree(this._state)
-        }
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action)
+        this._rerenderEntireTree(this._state)
     },
 
     addPostNewsElement (){
@@ -153,17 +137,6 @@ const state = {
 }
 window.state = store._state
 
-
-export const ActCreatorAddPostElement = () => {
-    return {
-        type: ADD_POST_ELEMENT
-    }
-}
-export const UpdateOnPostChangeActCreator = (text) => {
-    return {
-        type: UPDATE_ON_POST_CHANGE,  postMessage: text
-    }
-}
 
 
 export default store;

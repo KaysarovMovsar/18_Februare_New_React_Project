@@ -2,7 +2,7 @@ import React from 'react';
 import s from './MyPost.module.css'
 import Post from "./Post/Post";
 import {type} from "@testing-library/user-event/dist/type";
-import {ActCreatorAddPostElement, UpdateOnPostChangeActCreator} from "../../../redux/state";
+import {ActCreatorAddPostElement, UpdateOnPostChangeActCreator} from "../../../redux/profile-reducer";
 
 
 const MyPost = (props) => {
