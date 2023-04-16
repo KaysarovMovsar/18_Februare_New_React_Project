@@ -1,7 +1,15 @@
 const ADD_POST_ELEMENT = "ADD-POST-ELEMENT"
 const UPDATE_ON_POST_CHANGE = "UPDATE-ON-POST-CHANGE"
 
-const profileReducer = (state, action) => {
+let initialState = {
+    PostsData: [
+        {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
+        {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
+    ],
+    onChangeData: 'It-kamasutra.com'
+}
+
+const profileReducer = (state= initialState, action) => {
 
     switch (action.type) {
         case ADD_POST_ELEMENT:

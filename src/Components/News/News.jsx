@@ -3,6 +3,7 @@ import s from "./News.module.css"
 import Post from "../Profile/MyPosts/Post/Post";
 
 
+
 const News = (props) => {
     
 
@@ -17,7 +18,7 @@ const News = (props) => {
         props.OnPostNewsElement(text)
     }
 
-    const postElements = props.state.newsPostData.map(s => <Post message={s.message} LikesCount={s.LikesCount}/>)
+    const postElements = props.newsPostData.map(s => <Post message={s.message} LikesCount={s.LikesCount}/>)
 
 
     return (
@@ -64,7 +65,7 @@ const News = (props) => {
             </div>
             <div className={s.containerBtn}>
                 <div>
-                    <textarea ref={addRefElement} onChange={OnPostNewsElement} value={props.state.onNewsPost}></textarea>
+                    <textarea ref={addRefElement} onChange={OnPostNewsElement} value={props.onNewsPost}></textarea>
                 </div>
                 <div>
                     <button onClick={addPostNewsElement}>Add Post</button>

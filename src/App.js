@@ -7,7 +7,10 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import News from "./Components/News/News";
 import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import store from "./redux/state";
+import store from "./redux/store";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+import NewsContainer from "./Components/News/NewsContainer";
+import SettingsContainer from "./Components/Settings/SettingsContainer";
 
 
 const App = (props) => {
@@ -19,23 +22,13 @@ const App = (props) => {
                 <div className='App-Wrap-container'>
                     <Routes>
                         <Route path="/profile"
-                               element={<Profile state={props.state.profilePage}
-                                                 dispatch={props.dispatch}/>}/>
+                               element={<Profile store = {props.store}/>}/>
                         <Route path="/dialogs/*"
-                               element={<Dialogs state={props.state.dialogPage}
-                                                 dialogsAddPost={props.dialogsAddPost}
-                                                 updateOnpostDialog={props.updateOnpostDialog}
-
-                               />}/>
+                               element={<DialogsContainer store={props.store}/>}/>
                         <Route path='/news/*'
-                               element={<News state={props.state.dialogPage}
-                                              addPostNewsElement={props.addPostNewsElement}
-                                              OnPostNewsElement={props.OnPostNewsElement}
-                               />}/>
+                               element={<NewsContainer store={props.store}/>}/>
                         <Route path='/settings/*'
-                               element={<Settings settingsAddPost={props.settingsAddPost}
-                                                  state={props.state.dialogPage}
-                                                  updateSetAddPost={props.updateSetAddPost}
+                               element={<SettingsContainer store={props.store}
                                />}/>
                     </Routes>
                 </div>
