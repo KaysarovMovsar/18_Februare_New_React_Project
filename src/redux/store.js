@@ -55,10 +55,9 @@ let store = {
                 {id: 1, message: 'Hello, what is your number', LikesCount: 'Like ' + 12},
                 {id: 2, message: 'Hello, I am not sure about that', LikesCount: 'Like ' + 11},
             ],
-            onNewsPost: 'NonthreateningSchool.ru',
-        }
+            onNewsPost: 'NonthreateningSchool.ru',},
 
-    },
+
     getState() {
         return this._state
     },
@@ -85,9 +84,11 @@ let store = {
     _rerenderEntireTree () {
         console.log("It was changed")
     },
-}
+}}
+
 window.state = store._state
 
 
 
 export default store;
+

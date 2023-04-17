@@ -1,40 +1,38 @@
-import React from 'react';
-import s from './MyPost.module.css'
+import React from "react";
+import s from "./Myposts.module.css";
 import Post from "./Post/Post";
-import {type} from "@testing-library/user-event/dist/type";
-import {ActCreatorAddPostElement, UpdateOnPostChangeActCreator} from "../../../redux/profile-reducer";
 
 
-const MyPost = (props) => {
 
-    const postElements = props.PostsData.map(p =>  <Post message={p.message} LikesCount={p.LikesCount}/>)
 
-    let newPost = React.createRef()
-    let addPostElement = () => {
-        props.AddPost()
+const Myposts = (props) => {
+    const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+
+    let newPostElement = React.createRef()
+
+
+    let profilePageAdd = () => {
+        props.addPost();
     }
 
-    let onAddPostChange = () => {
-        let text = newPost.current.value
-        props.onAddPost(text)
+    let onPostChanged = () => {
+        let what = newPostElement.current.value
+        props.updateNewPostText(what);
     }
 
     return (
-        <div className={s.container}>
-             <div className={s.sideBar}>
-                 <div>My posts</div>
-                 <textarea ref={newPost}
-                           className={s.input}
-                           placeholder='add'
-                           value={props.onChangeData}
-                           onChange={onAddPostChange}/><br/>
-                 <button onClick={addPostElement} className={s.add}>Add Post</button>
-                <div className={s.posts}>
-                    {postElements}
-                </div>
+        <div>
+            My posts
+            <div>
+                <textarea onChange={onPostChanged} ref={newPostElement} className={s.textarea} placeholder='Destination' value={props.onPostText}></textarea> <br/>
+                <button onClick={profilePageAdd}>Add post</button>
+                <button>Remove post</button>
+            </div>
+            <div className={s.item}>
+                { postElements }
             </div>
         </div>
     );
 }
 
-export default MyPost;
+export  default Myposts;

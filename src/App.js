@@ -3,11 +3,7 @@ import React from 'react';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
-import Dialogs from "./Components/Dialogs/Dialogs";
-import News from "./Components/News/News";
-import Settings from "./Components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import store from "./redux/store";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import NewsContainer from "./Components/News/NewsContainer";
 import SettingsContainer from "./Components/Settings/SettingsContainer";
@@ -28,8 +24,7 @@ const App = (props) => {
                         <Route path='/news/*'
                                element={<NewsContainer store={props.store}/>}/>
                         <Route path='/settings/*'
-                               element={<SettingsContainer store={props.store}
-                               />}/>
+                               element={<SettingsContainer store={props.store}/>}/>
                     </Routes>
                 </div>
             </div>
