@@ -1,11 +1,11 @@
 import React from "react";
-import s from "./Myposts.module.css";
+import s from "./MyPost.module.css";
 import Post from "./Post/Post";
 
 
 
 
-const Myposts = (props) => {
+const Mypost = (props) => {
     const postElements = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
     let newPostElement = React.createRef()
@@ -35,4 +35,4 @@ const Myposts = (props) => {
     );
 }
 
-export  default Myposts;
+export  default Mypost;
