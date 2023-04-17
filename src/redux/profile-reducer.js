@@ -1,27 +1,36 @@
-const ADD_POST_ELEMENT = "ADD-POST-ELEMENT"
-const UPDATE_ON_POST_CHANGE = "UPDATE-ON-POST-CHANGE"
+const PROFILE_PAGE_ADD = 'PROFILE-PAGE-ADD';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state, action) => {
+let initializeState = {
+    postData: [
+        {id: 1, message: 'Hello, Who prefer React', likesCount: 12},
+        {id: 2, message: 'I can try to search info', likesCount: 15},
+        {id: 3, message: 'Perhaps, but it need a time', likesCount: 29}
+    ],
+    onPostText: 'it-incubator.com'
+};
 
-    switch (action.type) {
-        case ADD_POST_ELEMENT:
-            let newsTextData = {
-                id: 1,
-                message: state.onChangeData,
-                LikesCount: 'Like ' + 12
-            }
-            state.PostsData.push(newsTextData)
-            state.onChangeData = '';
+const profileReducer = (state = initializeState, action) => {
+    switch (action.type ) {
+        case PROFILE_PAGE_ADD:
+            let setProfile =
+                {
+                    id: 1,
+                    message: state.onPostText,
+                    likesCount: 12
+                }
+            state.postData.push(setProfile);
+            state.onPostText = '';
             return state;
-        case UPDATE_ON_POST_CHANGE:
-            state.onChangeData = action.postMessage
+        case UPDATE_NEW_POST_TEXT:
+            state.onPostText = action.newText;
             return state;
         default:
             return state;
     }
 }
 
-export const ActCreatorAddPostElement = () => ({type: ADD_POST_ELEMENT})
-export const UpdateOnPostChangeActCreator = (text) => ({type: UPDATE_ON_POST_CHANGE,  postMessage: text})
+export const profilePageAddActionCreator = () => ({type: PROFILE_PAGE_ADD});
+export const onPostChangedActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export default profileReducer;
