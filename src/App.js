@@ -18,13 +18,13 @@ const App = (props) => {
                 <div className='App-Wrap-container'>
                     <Routes>
                         <Route path="/profile"
-                               element={<Profile store = {props.store}/>}/>
+                               element={<Profile />}/>
                         <Route path="/dialogs/*"
-                               element={<DialogsContainer store={props.store}/>}/>
+                               element={<DialogsContainer />}/>
                         <Route path='/news/*'
-                               element={<NewsContainer store={props.store}/>}/>
+                               element={<NewsContainer />}/>
                         <Route path='/settings/*'
-                               element={<SettingsContainer store={props.store}/>}/>
+                               element={<SettingsContainer />}/>
                     </Routes>
                 </div>
             </div>
