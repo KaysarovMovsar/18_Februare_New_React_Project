@@ -1,39 +1,28 @@
-import React from 'react'
 import {ActCreatorDialogsPostData, ActCreatorOnPostDialogsData} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
 
-const DialogsContainer = (props) => {
-
-    return (
-        <StoreContext.Consumer >
-            {
-                (store) => {
-                    let state = store.getState()
-
-                    let dialogsAddPost = () => {
-                        let action = ActCreatorDialogsPostData()
-                        store.dispatch(action)
-                    }
-
-                    let onDialogsPost = (text) => {
-                        let action = ActCreatorOnPostDialogsData(text)
-                        store.dispatch(action)
-                    }
-
-                    return (
-                        <Dialogs AddPost={dialogsAddPost}
-                                 onPost={onDialogsPost}
-                                 DialogsData={state.dialogPage.DialogsData}
-                                 MessagesData={state.dialogPage.MessagesData}
-                                 dialogPostData={state.dialogPage.dialogPostData}
-                                 onDialogsPost={state.dialogPage.onDialogsPost}/>
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-    );
+const mapStateToProps = (state) => {
+    return {
+        DialogsData: state.dialogPage.DialogsData,
+        MessagesData: state.dialogPage.MessagesData,
+        dialogPostData: state.dialogPage.dialogPostData,
+        onDialogsPost: state.dialogPage.onDialogsPost
+    }
 }
 
-export default DialogsContainer
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dialogsAddPost: () => {
+            dispatch(ActCreatorDialogsPostData())
+        },
+        onDialogsPosts: (text) => {
+            dispatch(ActCreatorOnPostDialogsData(text))
+        }
+    }
+}
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+export default DialogsContainer;
