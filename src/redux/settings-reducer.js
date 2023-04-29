@@ -9,21 +9,27 @@ let initialState = {
     onSettingPost: 'IT-NOT_ENOUGH_SCHOOL.COM',
 }
 
-const settingsReducer = (state= initialState, action) => {
+const settingsReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case SETTING_ADD_POST:
+        case SETTING_ADD_POST: {
             let settingTextData = {
                 id: 0,
                 message: state.onSettingPost,
                 LikesCount: 'Like ' + 12
             }
-            state.settingPostData.push(settingTextData)
-            state.onSettingPost = ""
-            return state;
-        case UPDATE_SET_ADD_POST:
-            state.onSettingPost = action.postMessage
-            return state;
+            let stateCopy = {...state}
+            stateCopy.settingPostData = [...state.settingPostData]
+            stateCopy.settingPostData.push(settingTextData)
+            stateCopy.onSettingPost = ""
+            return stateCopy;
+        }
+        case UPDATE_SET_ADD_POST: {
+            let stateCopy = {...state}
+            stateCopy.onSettingPost = [...state.onSettingPost]
+            stateCopy.onSettingPost = action.postMessage
+            return stateCopy;
+        }
         default:
             return state;
     }

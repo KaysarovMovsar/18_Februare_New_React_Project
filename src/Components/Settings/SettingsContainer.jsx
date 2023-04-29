@@ -1,6 +1,6 @@
 import Settings from "./Settings";
-import {ActCreatorSettingAddPostData, ActCreatorUpdateSetAddPost} from "../../redux/settings-reducer";
 import {connect} from "react-redux";
+import {ActCreatorSettingAddPostData, ActCreatorUpdateSetAddPost} from "../../redux/settings-reducer";
 
 
 

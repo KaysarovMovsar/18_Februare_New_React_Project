@@ -28,18 +28,24 @@ let initialState = {
 const dialogsReducer = (state= initialState, action) => {
 
     switch (action.type) {
-        case DIALOGS_ADD_POST:
+        case DIALOGS_ADD_POST: {
             let dialogTextData = {
                 id: 1,
                 message: state.onDialogsPost,
                 LikesCount: 'Like ' + 12
             }
-            state.dialogPostData.push(dialogTextData)
-            state.onDialogsPost = '';
-            return state;
-        case UPDATE_ONPOST_DIALOG:
-            state.onDialogsPost = action.postMessage
-            return state;
+            let stateCopy = {...state}
+            stateCopy.dialogPostData = [...state.dialogPostData]
+            stateCopy.dialogPostData.push(dialogTextData)
+            stateCopy.onDialogsPost = '';
+            return stateCopy;
+        }
+        case UPDATE_ONPOST_DIALOG: {
+            let stateCopy = {...state}
+            stateCopy.onDialogsPost = [...state.onDialogsPost]
+            stateCopy.onDialogsPost = action.postMessage
+            return stateCopy;
+        }
         default:
             return state;
     }
