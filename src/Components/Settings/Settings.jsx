@@ -10,12 +10,12 @@ const Settings = (props) => {
     const setPostElement = React.createRef()
 
     const settingsAddPost = () => {
-        props.settingsAddPost()
+        props.settingsAddPosts()
     }
 
     const updateSetAddPost = () => {
         let text = setPostElement.current.value
-        props.updateSetAddPost(text)
+        props.updateSetAddPosts(text)
     }
 
     return (

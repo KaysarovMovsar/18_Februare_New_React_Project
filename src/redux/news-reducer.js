@@ -9,21 +9,28 @@ let initialState = {
     onNewsPost: 'NonthreateningSchool.ru'
 }
 
-const newsReducer = (state= initialState, action) => {
+const newsReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST_NEWS_ELEMENT:
+        case ADD_POST_NEWS_ELEMENT: {
             let newsTextData = {
                 id: 1,
                 message: state.onNewsPost,
                 LikesCount: 'Like ' + 12
             }
-            state.newsPostData.push(newsTextData)
-            state.onNewsPost = '';
-            return state;
-        case ON_POST_NEWS_ELEMENT:
-            state.onNewsPost = action.message
-            return state;
+            let stateCopy = {...state}
+            stateCopy.newsPostData = [...state.newsPostData]
+            stateCopy.newsPostData.push(newsTextData)
+            stateCopy.onNewsPost = '';
+            return stateCopy;
+        }
+        case ON_POST_NEWS_ELEMENT: {
+            let stateCopy = {...state}
+            stateCopy.onNewsPost = [...state.onNewsPost]
+
+            stateCopy.onNewsPost = action.message
+            return stateCopy;
+        }
         default:
             return state;
     }

@@ -10,12 +10,12 @@ const News = (props) => {
     const addRefElement = React.createRef()
 
     const addPostNewsElement = () => {
-        props.addPostNewsElement()
+        props.addPostNewsElements()
     }
 
     const OnPostNewsElement = () => {
         let text = addRefElement.current.value
-        props.OnPostNewsElement(text)
+        props.OnPostNewsElements(text)
     }
 
     const postElements = props.newsPostData.map(s => <Post message={s.message} LikesCount={s.LikesCount}/>)

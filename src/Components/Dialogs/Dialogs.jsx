@@ -18,12 +18,12 @@ const Dialogs = (props) => {
     let dialogsPostElement = React.createRef()
 
     let dialogsAddPost = () => {
-        props.AddPost()
+        props.dialogsAddPost()
     }
 
     let onDialogsPost = () => {
         let text = dialogsPostElement.current.value
-        props.onPost(text)
+        props.onDialogsPosts(text)
     }
 
     return (
